@@ -9,7 +9,8 @@ class insulin(object):
     bolus = 0
     
     
-    def __init__(self, name, sugar_optimal, correction_factor, carb_ratio, insulin_on_board):
+    def __init__(self, name, sugar_optimal, correction_factor,
+                 carb_ratio, insulin_on_board):
         self.name = name
         self.sugar_optimal = sugar_optimal
         self.correction_factor = correction_factor
@@ -20,7 +21,8 @@ class insulin(object):
     
     def correction_insulin(self, sugar_current):
         if sugar_current > self.sugar_optimal:
-            insulin_correct = (sugar_current - self.sugar_optimal) / self.correction_factor
+            insulin_correct = (sugar_current - self.sugar_optimal
+                               ) / self.correction_factor
            
             '''
             if insulin_correct > insulin_on_board:
@@ -43,3 +45,9 @@ class insulin(object):
     
     def print_insulin(self):
         print("Delivering " + self.insulin_total + " units of insulin")
+
+if __name__ == '__main__':
+    my_insulin_test = insulin('Emmett',100,1,10,5)
+    my_insulin_test.print_insulin()
+    
+    
